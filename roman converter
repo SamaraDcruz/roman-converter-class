@@ -1,0 +1,31 @@
+class RomanConverter:
+    # Method to convert integer to Roman numeral
+    def to_roman(self, number):
+        values = [1000, 900, 500, 400, 300, 200, 100,
+                  90, 50, 40, 30, 20, 10,
+                  9, 5, 4, 3, 2, 1]
+        romans = ["M", "CM", "D", "CD", "CCC", "CC", "C",
+                  "XC", "L", "XL", "XXX", "XX", "X",
+                  "IX", "V", "IV", "III", "II", "I"]
+
+        result = ""
+        i = 0
+
+        # Convert number step by step
+        while number > 0:
+            if number >= values[i]:
+                result += romans[i]
+                number -= values[i]
+            else:
+                i += 1
+
+        return result
+
+
+# ------ Main Program ------
+num = int(input("Enter a number to convert to Roman: "))
+
+obj = RomanConverter()
+roman_value = obj.to_roman(num)
+
+print("Roman value is:", roman_value)
